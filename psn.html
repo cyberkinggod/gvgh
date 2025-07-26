@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault Ghana - Premium PSN Accounts with Games</title>
+    <meta name="description" content="Buy premium PSN accounts preloaded with PS4 & PS5 games. Instant delivery, affordable prices, and hundreds of games to choose from.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and elements Tailwind can't handle */
+        .account-card {
+            transition: all 0.3s ease;
+        }
+        .account-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .game-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .game-list.active {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+        .filter-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .filter-section.active {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+        /* Custom scrollbar for game lists */
+        .game-list ul {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .game-list ul::-webkit-scrollbar {
+            width: 6px;
+        }
+        .game-list ul::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .game-list ul::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .game-list ul::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-indigo-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fab fa-playstation text-2xl"></i>
+                <a href="#" class="text-xl font-bold">Game<span class="text-indigo-300">Vault Ghana</span></a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-indigo-300">Home</a>
+                <a href="#accounts" class="hover:text-indigo-300">Accounts</a>
+                <a href="#faq" class="hover:text-indigo-300">FAQ</a>
+                <a href="#contact" class="hover:text-indigo-300">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <div class="relative">
+                    <button id="cart-button" class="hidden md:block bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg font-medium transition">
+                        <i class="fas fa-shopping-cart mr-2"></i>Cart <span id="cart-count" class="bg-white text-indigo-800 text-xs font-bold px-2 py-1 rounded-full ml-1">0</span>
+                    </button>
+                    <!-- Cart dropdown -->
+                    <div id="cart-dropdown" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                        <div class="p-4">
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">Your Cart</h3>
+                            <div id="cart-items" class="max-h-60 overflow-y-auto">
+                                <p class="text-gray-500 text-center py-4">Your cart is empty</p>
+                            </div>
+                            <div class="border-t mt-3 pt-3">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Subtotal:</span>
+                                    <span id="cart-subtotal" class="font-medium">$0.00</span>
+                                </div>
+                                <a href="#" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 rounded-md font-medium transition">
+                                    Checkout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-indigo-800 px-4 py-2" id="mobile-menu">
+            <a href="#" class="block py-2 hover:text-indigo-300">Home</a>
+            <a href="#accounts" class="block py-2 hover:text-indigo-300">Accounts</a>
+            <a href="#faq" class="block py-2 hover:text-indigo-300">FAQ</a>
+            <a href="#contact" class="block py-2 hover:text-indigo-300">Contact</a>
+            <button class="block py-2 bg-indigo-600 rounded px-3 w-max hover:bg-indigo-700">
+                <i class="fas fa-shopping-cart mr-2"></i>Cart <span id="mobile-cart-count" class="bg-white text-indigo-800 text-xs font-bold px-2 py-1 rounded-full ml-1">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-indigo-900 to-purple-900 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Premium PSN Accounts Loaded with Games</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Instant access to hundreds of PS4 & PS5 games at a fraction of the retail price</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#accounts" class="bg-white text-indigo-900 hover:bg-gray-100 px-6 py-3 rounded-lg font-bold text-lg transition">Browse Accounts</a>
+                <a href="#how-it-works" class="border-2 border-white hover:bg-white hover:text-indigo-900 px-6 py-3 rounded-lg font-bold text-lg transition">How It Works</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-lg bg-gray-50">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1. Choose Your Account</h3>
+                    <p class="text-gray-600">Browse our selection of PSN accounts loaded with games. Filter by platform, price, or game titles.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg bg-gray-50">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-credit-card text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">2. Complete Purchase</h3>
+                    <p class="text-gray-600">Add to cart and checkout securely. We accept various payment methods for your convenience.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg bg-gray-50">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gamepad text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">3. Receive & Play</h3>
+                    <p class="text-gray-600">Get instant access to your account details and start downloading games right away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Search and Filters -->
+        <div class="mb-12 bg-white rounded-xl shadow-md p-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                <div class="relative flex-grow">
+                    <input type="text" placeholder="Search by game title..." class="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+                </div>
+                <button id="filter-toggle" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded-lg transition">
+                    <i class="fas fa-filter"></i>
+                    <span>Filters</span>
+                </button>
+            </div>
+            
+            <!-- Filter Section -->
+            <div class="filter-section" id="filter-section">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 pt-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+                        <select class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option>All Prices</option>
+                            <option>Under $20</option>
+                            <option>$20 - $50</option>
+                            <option>$50 - $100</option>
+                            <option>Over $100</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Delivery Time</label>
+                        <select class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option>Any Delivery</option>
+                            <option>Instant</option>
+                            <option>Within 1 Hour</option>
+                            <option>Next Day</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Platform</label>
+                        <select class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option>All Platforms</option>
+                            <option>PS4 Only</option>
+                            <option>PS5 Only</option>
+                            <option>PS4 & PS5</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Number of Games</label>
+                        <select class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option>Any Amount</option>
+                            <option>1-5 Games</option>
+                            <option>6-10 Games</option>
+                            <option>10+ Games</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <button class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg mr-2 transition">Reset</button>
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accounts Grid -->
+        <section id="accounts">
+            <h2 class="text-2xl font-bold mb-6">Available PSN Accounts</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Account Card 1 -->
+                <div class="account-card bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Ultimate PS5 Collection</h3>
+                                <div class="flex items-center mt-1">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">PS5</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Instant Delivery</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-indigo-600">$89.99</span>
+                                <div class="text-sm text-gray-500">Primary Account</div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">Includes 15 premium PS5 titles including God of War Ragnarök, Horizon Forbidden West, and more.</p>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-globe-americas text-gray-500 mr-1"></i>
+                                <span class="text-sm text-gray-600">USA Region</span>
+                            </div>
+                            <div class="text-sm text-gray-600">15 Games</div>
+                        </div>
+                        
+                        <button class="toggle-games w-full text-center text-indigo-600 font-medium py-2 hover:text-indigo-800 transition">
+                            View Game List <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        
+                        <div class="game-list mt-2 border-t pt-4">
+                            <h4 class="font-medium mb-2">Included Games:</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                <li>God of War Ragnarök</li>
+                                <li>Horizon Forbidden West</li>
+                                <li>Ratchet & Clank: Rift Apart</li>
+                                <li>Demon's Souls</li>
+                                <li>Returnal</li>
+                                <li>Marvel's Spider-Man: Miles Morales</li>
+                                <li>Ghost of Tsushima Director's Cut</li>
+                                <li>Final Fantasy XVI</li>
+                                <li>Resident Evil 4 Remake</li>
+                                <li>Street Fighter 6</li>
+                                <li>Dead Space Remake</li>
+                                <li>The Last of Us Part I</li>
+                                <li>Call of Duty: Modern Warfare II</li>
+                                <li>NBA 2K23</li>
+                                <li>FIFA 23</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4 border-t">
+                        <button class="add-to-cart w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition" data-id="1" data-name="Ultimate PS5 Collection" data-price="89.99">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Account Card 2 -->
+                <div class="account-card bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">PS4 Essentials Pack</h3>
+                                <div class="flex items-center mt-1">
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded mr-2">PS4</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Within 1 Hour</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-indigo-600">$49.99</span>
+                                <div class="text-sm text-gray-500">Secondary Account</div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">8 must-have PS4 games including The Last of Us Part II, Ghost of Tsushima, and Red Dead Redemption 2.</p>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-globe-europe text-gray-500 mr-1"></i>
+                                <span class="text-sm text-gray-600">EU Region</span>
+                            </div>
+                            <div class="text-sm text-gray-600">8 Games</div>
+                        </div>
+                        
+                        <button class="toggle-games w-full text-center text-indigo-600 font-medium py-2 hover:text-indigo-800 transition">
+                            View Game List <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        
+                        <div class="game-list mt-2 border-t pt-4">
+                            <h4 class="font-medium mb-2">Included Games:</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                <li>The Last of Us Part II</li>
+                                <li>Ghost of Tsushima</li>
+                                <li>Red Dead Redemption 2</li>
+                                <li>God of War (2018)</li>
+                                <li>Marvel's Spider-Man</li>
+                                <li>Uncharted 4: A Thief's End</li>
+                                <li>Horizon Zero Dawn</li>
+                                <li>Bloodborne</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4 border-t">
+                        <button class="add-to-cart w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition" data-id="2" data-name="PS4 Essentials Pack" data-price="49.99">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Account Card 3 -->
+                <div class="account-card bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Cross-Gen Bundle</h3>
+                                <div class="flex items-center mt-1">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-1">PS5</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">PS4</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded ml-2">Instant</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-indigo-600">$129.99</span>
+                                <div class="text-sm text-gray-500">Primary Account</div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">Massive collection of 25 cross-gen games playable on both PS4 and PS5 consoles.</p>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-globe-asia text-gray-500 mr-1"></i>
+                                <span class="text-sm text-gray-600">Asia Region</span>
+                            </div>
+                            <div class="text-sm text-gray-600">25 Games</div>
+                        </div>
+                        
+                        <button class="toggle-games w-full text-center text-indigo-600 font-medium py-2 hover:text-indigo-800 transition">
+                            View Game List <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        
+                        <div class="game-list mt-2 border-t pt-4">
+                            <h4 class="font-medium mb-2">Included Games:</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                <li>Grand Theft Auto V</li>
+                                <li>Cyberpunk 2077</li>
+                                <li>Assassin's Creed Valhalla</li>
+                                <li>FIFA 23</li>
+                                <li>Call of Duty: Modern Warfare II</li>
+                                <li>NBA 2K23</li>
+                                <li>Mortal Kombat 11</li>
+                                <li>Resident Evil Village</li>
+                                <li>Far Cry 6</li>
+                                <li>Dying Light 2</li>
+                                <li>Borderlands 3</li>
+                                <li>Watch Dogs: Legion</li>
+                                <li>Marvel's Avengers</li>
+                                <li>Hitman 3</li>
+                                <li>Rainbow Six Siege</li>
+                                <li>Overwatch 2</li>
+                                <li>Destiny 2</li>
+                                <li>Fortnite</li>
+                                <li>Rocket League</li>
+                                <li>Fall Guys</li>
+                                <li>Minecraft</li>
+                                <li>Among Us</li>
+                                <li>Stray</li>
+                                <li>Kena: Bridge of Spirits</li>
+                                <li>Hades</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4 border-t">
+                        <button class="add-to-cart w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition" data-id="3" data-name="Cross-Gen Bundle" data-price="129.99">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Account Card 4 -->
+                <div class="account-card bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Sports Fanatic</h3>
+                                <div class="flex items-center mt-1">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2">PS5</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Instant</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-indigo-600">$69.99</span>
+                                <div class="text-sm text-gray-500">Login-only</div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">All the top sports games for PS5 including NBA 2K23, FIFA 23, Madden NFL 23, and more.</p>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-globe-americas text-gray-500 mr-1"></i>
+                                <span class="text-sm text-gray-600">USA Region</span>
+                            </div>
+                            <div class="text-sm text-gray-600">7 Games</div>
+                        </div>
+                        
+                        <button class="toggle-games w-full text-center text-indigo-600 font-medium py-2 hover:text-indigo-800 transition">
+                            View Game List <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        
+                        <div class="game-list mt-2 border-t pt-4">
+                            <h4 class="font-medium mb-2">Included Games:</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                <li>NBA 2K23</li>
+                                <li>FIFA 23</li>
+                                <li>Madden NFL 23</li>
+                                <li>MLB The Show 23</li>
+                                <li>NHL 23</li>
+                                <li>WWE 2K23</li>
+                                <li>UFC 4</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4 border-t">
+                        <button class="add-to-cart w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition" data-id="4" data-name="Sports Fanatic" data-price="69.99">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Account Card 5 -->
+                <div class="account-card bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">JRPG Collection</h3>
+                                <div class="flex items-center mt-1">
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded mr-2">PS4</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Next Day</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-indigo-600">$59.99</span>
+                                <div class="text-sm text-gray-500">Secondary Account</div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">10 amazing Japanese RPGs including Final Fantasy VII Remake, Persona 5 Royal, and more.</p>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-globe-asia text-gray-500 mr-1"></i>
+                                <span class="text-sm text-gray-600">Japan Region</span>
+                            </div>
+                            <div class="text-sm text-gray-600">10 Games</div>
+                        </div>
+                        
+                        <button class="toggle-games w-full text-center text-indigo-600 font-medium py-2 hover:text-indigo-800 transition">
+                            View Game List <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        
+                        <div class="game-list mt-2 border-t pt-4">
+                            <h4 class="font-medium mb-2">Included Games:</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                <li>Final Fantasy VII Remake</li>
+                                <li>Persona 5 Royal</li>
+                                <li>Dragon Quest XI</li>
+                                <li>NieR: Automata</li>
+                                <li>NieR Replicant</li>
+                                <li>Tales of Arise</li>
+                                <li>Yakuza: Like a Dragon</li>
+                                <li>Octopath Traveler</li>
+                                <li>Scarlet Nexus</li>
+                                <li>13 Sentinels: Aegis Rim</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4 border-t">
+                        <button class="add-to-cart w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition" data-id="5" data-name="JRPG Collection" data-price="59.99">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Account Card 6 -->
+                <div class="account-card bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Family Friendly Bundle</h3>
+                                <div class="flex items-center mt-1">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-1">PS5</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">PS4</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded ml-2">Instant</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-indigo-600">$79.99</span>
+                                <div class="text-sm text-gray-500">Primary Account</div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">12 fun games perfect for the whole family to enjoy together on PS4 or PS5.</p>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-globe-europe text-gray-500 mr-1"></i>
+                                <span class="text-sm text-gray-600">EU Region</span>
+                            </div>
+                            <div class="text-sm text-gray-600">12 Games</div>
+                        </div>
+                        
+                        <button class="toggle-games w-full text-center text-indigo-600 font-medium py-2 hover:text-indigo-800 transition">
+                            View Game List <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        
+                        <div class="game-list mt-2 border-t pt-4">
+                            <h4 class="font-medium mb-2">Included Games:</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                <li>Sackboy: A Big Adventure</li>
+                                <li>Ratchet & Clank: Rift Apart</li>
+                                <li>Crash Bandicoot 4</li>
+                                <li>Spyro Reignited Trilogy</li>
+                                <li>Lego Star Wars: The Skywalker Saga</li>
+                                <li>Minecraft</li>
+                                <li>Overcooked! All You Can Eat</li>
+                                <li>Fall Guys</li>
+                                <li>Rocket League</li>
+                                <li>Knack 2</li>
+                                <li>LittleBigPlanet 3</li>
+                                <li>Astro's Playroom</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4 border-t">
+                        <button class="add-to-cart w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition" data-id="6" data-name="Family Friendly Bundle" data-price="79.99">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-4 py-2 rounded-l-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-700 font-medium hover:bg-gray-50">1</a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50">3</a>
+                    <a href="#" class="px-4 py-2 rounded-r-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 font-medium text-lg focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <span>What is a PSN account with games?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">A PSN account with games is a PlayStation Network account that has purchased digital games. When you buy one of our accounts, you get access to all the games that have been purchased on that account. You can download and play these games on your own console.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 font-medium text-lg focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <span>What's the difference between Primary and Secondary accounts?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600 mb-2"><strong>Primary Account:</strong> You can set this as the primary account on your PS4/PS5, allowing all users on your console to access the games. You can also play the games from your own account.</p>
+                        <p class="text-gray-600"><strong>Secondary Account:</strong> You'll need to log into this account to download and play the games. Only this account can access the games, but you can play them on your console.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 font-medium text-lg focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <span>How do I receive my account after purchase?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">After your payment is confirmed, you'll receive an email with the account details (email and password) and step-by-step instructions on how to access and download the games. For instant delivery items, this usually happens within minutes.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 font-medium text-lg focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <span>Can I change the password or email of the account?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">We strongly recommend against changing any account details. These accounts are shared with multiple customers, and changing details will lock others out, which violates our terms of service and may result in account suspension.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 font-medium text-lg focus:outline-none">
+                        <div class="flex justify-between items-center">
+                            <span>What happens if the account stops working?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">We guarantee all accounts for 30 days from purchase. If you lose access within this period, contact our support team with your order details, and we'll provide a replacement account with similar games.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Get in Touch</h3>
+                    <p class="text-gray-600 mb-6">Have questions or need support? Reach out to our team and we'll get back to you as soon as possible.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email Us</h4>
+                                <p class="text-gray-600">support@gamevaultgh.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fab fa-whatsapp text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">WhatsApp</h4>
+                                <p class="text-gray-600">+233 53 950 5287</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Support Hours</h4>
+                                <p class="text-gray-600">Monday - Friday: 9AM - 6PM EST</p>
+                                <p class="text-gray-600">Saturday: 10AM - 4PM EST</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Send a Message</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <select id="subject" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <option>General Inquiry</option>
+                                <option>Order Support</option>
+                                <option>Technical Issue</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fab fa-playstation text-2xl"></i>
+                        <span class="text-xl font-bold">Game<span class="text-indigo-300">Vault Ghana</span></span>
+                    </div>
+                    <p class="text-gray-400">Your trusted source for premium PSN accounts loaded with the latest games at affordable prices.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#accounts" class="text-gray-400 hover:text-white transition">PSN Accounts</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">Subscribe to our newsletter for deals</p>
+                    <div class="mt-2 flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-900">
+                        <button class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 GameVault Ghana. All rights reserved.</p>
+                <p class="mt-2 text-sm">GameVault Ghana is not affiliated with Sony or PlayStation. All game titles are property of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold">Your Shopping Cart</h3>
+                    <button id="close-cart-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-cart-items" class="space-y-4 mb-6">
+                    <!-- Cart items will be added here dynamically -->
+                    <p class="text-gray-500 text-center py-4">Your cart is empty</p>
+                </div>
+                
+                <div class="border-t pt-4 mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Subtotal:</span>
+                        <span id="modal-cart-subtotal" class="font-bold">$0.00</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Delivery Fee:</span>
+                        <span class="font-bold">$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-lg font-bold">
+                        <span>Total:</span>
+                        <span id="modal-cart-total">$0.00</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition">
+                        Proceed to Checkout
+                    </button>
+                    <button class="w-full border border-indigo-600 text-indigo-600 hover:bg-indigo-50 py-3 rounded-lg font-medium transition">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Filter section toggle
+        const filterToggle = document.getElementById('filter-toggle');
+        const filterSection = document.getElementById('filter-section');
+        
+        filterToggle.addEventListener('click', () => {
+            filterSection.classList.toggle('active');
+        });
+
+        // Game list toggle for each account card
+        const gameToggles = document.querySelectorAll('.toggle-games');
+        gameToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const gameList = toggle.nextElementSibling;
+                gameList.classList.toggle('active');
+                
+                const icon = toggle.querySelector('i');
+                if (gameList.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+
+        // FAQ toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                content.classList.toggle('hidden');
+                
+                const icon = toggle.querySelector('i');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Cart functionality
+        let cart = [];
+        
+        // Add to cart buttons
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                showCartModal();
+            });
+        });
+        
+        // Update cart display
+        function updateCart() {
+            const cartCount = document.getElementById('cart-count');
+            const mobileCartCount = document.getElementById('mobile-cart-count');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartItems = document.getElementById('cart-items');
+            const modalCartItems = document.getElementById('modal-cart-items');
+            const modalCartSubtotal = document.getElementById('modal-cart-subtotal');
+            const modalCartTotal = document.getElementById('modal-cart-total');
+            
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            mobileCartCount.textContent = totalItems;
+            
+            // Calculate subtotal
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            modalCartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            modalCartTotal.textContent = `$${subtotal.toFixed(2)}`;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 text-center py-4">Your cart is empty</p>';
+                modalCartItems.innerHTML = '<p class="text-gray-500 text-center py-4">Your cart is empty</p>';
+            } else {
+                cartItems.innerHTML = '';
+                modalCartItems.innerHTML = '';
+                
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-200';
+                    itemElement.innerHTML = `
+                        <div>
+                            <h4 class="font-medium">${item.name}</h4>
+                            <div class="flex items-center mt-1">
+                                <button class="decrease-quantity text-gray-500 hover:text-indigo-600" data-id="${item.id}">
+                                    <i class="fas fa-minus text-xs"></i>
+                                </button>
+                                <span class="mx-2">${item.quantity}</span>
+                                <button class="increase-quantity text-gray-500 hover:text-indigo-600" data-id="${item.id}">
+                                    <i class="fas fa-plus text-xs"></i>
+                                </button>
+                                <span class="text-gray-500 text-sm ml-2">x $${item.price.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <div class="font-medium">$${(item.price * item.quantity).toFixed(2)}</div>
+                    `;
+                    
+                    const modalItemElement = itemElement.cloneNode(true);
+                    
+                    cartItems.appendChild(itemElement);
+                    modalCartItems.appendChild(modalItemElement);
+                });
+                
+                // Add event listeners to quantity buttons
+                document.querySelectorAll('.decrease-quantity').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const id = button.getAttribute('data-id');
+                        updateQuantity(id, -1);
+                    });
+                });
+                
+                document.querySelectorAll('.increase-quantity').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const id = button.getAttribute('data-id');
+                        updateQuantity(id, 1);
+                    });
+                });
+            }
+        }
+        
+        // Update item quantity
+        function updateQuantity(id, change) {
+            const itemIndex = cart.findIndex(item => item.id === id);
+            
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity += change;
+                
+                // Remove item if quantity reaches 0
+                if (cart[itemIndex].quantity <= 0) {
+                    cart.splice(itemIndex, 1);
+                }
+                
+                updateCart();
+            }
+        }
+        
+        // Cart button functionality
+        const cartButton = document.getElementById('cart-button');
+        const cartDropdown = document.getElementById('cart-dropdown');
+        
+        cartButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            cartDropdown.classList.toggle('hidden');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!cartButton.contains(e.target) && !cartDropdown.contains(e.target)) {
+                cartDropdown.classList.add('hidden');
+            }
+        });
+        
+        // Cart modal functionality
+        function showCartModal() {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.classList.remove('hidden');
+        }
+        
+        const closeCartModal = document.getElementById('close-cart-modal');
+        closeCartModal.addEventListener('click', () => {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            const cartModal = document.getElementById('cart-modal');
+            if (e.target === cartModal) {
+                cartModal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
